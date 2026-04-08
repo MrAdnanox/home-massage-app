@@ -1,0 +1,21 @@
+{
+    "apiVersion": 3,
+    "name": "mpe2025/reservation-form",
+    "version": "1.0.0",
+    "title": "Reservation Form",
+    "category": "widgets",
+    "icon": "email",
+    "description": "A reservation form with auto-filled object field and dynamic language support via Polylang.",
+    "supports": {
+        "html": false
+    },
+    "attributes": {
+        "language": {
+            "type": "string",
+            "default": "en"
+        }
+    },
+    "textdomain": "mpe2025",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php"
+}

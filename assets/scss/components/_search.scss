@@ -1,0 +1,30 @@
+/* Search Bar in Hero */
+.hero-search {
+    display: flex;
+    background: var(--background-light);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.hero-search-icon {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.hero-search input {
+    flex: 1;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.hero-search button {
+    border-radius: 0;
+    padding: 0 1.5rem;
+}

@@ -1,0 +1,19 @@
+# WordPress / Theme ignores
+node_modules/
+vendor/
+.DS_Store
+*.log
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Secret files
+.env
+.env.*
+!.env.example
+
+# Large files & SDKs
+android-sdk/
+*.zip
+*.tar.gz

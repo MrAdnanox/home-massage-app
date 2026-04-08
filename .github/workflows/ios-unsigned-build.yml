@@ -1,0 +1,60 @@
+name: Build iOS (Unsigned)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Permet de lancer la compilation manuellement
+
+jobs:
+  build-ios:
+    name: Build Unsigned iOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./home-massage-app
+        run: npm install
+
+      - name: Build Web App
+        working-directory: ./home-massage-app
+        run: npm run build
+
+      - name: Sync Capacitor iOS
+        working-directory: ./home-massage-app
+        run: npx cap sync ios
+
+      - name: Build Unsigned iOS App (Xcode)
+        working-directory: ./home-massage-app/ios/App
+        run: |
+          xcodebuild -workspace App.xcworkspace \
+                     -scheme App \
+                     -configuration Debug \
+                     -sdk iphoneos \
+                     -derivedDataPath build \
+                     CODE_SIGNING_ALLOWED=NO \
+                     CODE_SIGNING_REQUIRED=NO \
+                     CODE_SIGN_IDENTITY="" \
+                     clean build
+
+      - name: Package IPA
+        working-directory: ./home-massage-app/ios/App
+        run: |
+          mkdir Payload
+          cp -r build/Build/Products/Debug-iphoneos/App.app Payload/
+          zip -r "home-massage-app-unsigned.ipa" Payload
+
+      - name: Upload Unsigned IPA (Artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-massage-app-ios-unsigned
+          path: ./home-massage-app/ios/App/home-massage-app-unsigned.ipa
+          retention-days: 7

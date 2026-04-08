@@ -1,0 +1,27 @@
+{
+    "apiVersion": 3,
+    "name": "mpe2025/custom-gallery",
+    "version": "1.0.0",
+    "title": "Custom Gallery",
+    "category": "media",
+    "icon": "format-gallery",
+    "description": "A performance-optimized custom gallery block.",
+    "supports": {
+        "html": false,
+        "mode": false
+    },
+    "attributes": {
+        "images": {
+            "type": "array",
+            "default": []
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        }
+    },
+    "textdomain": "mpe2025",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "viewScript": "file:./script.js"
+}

@@ -1,0 +1,61 @@
+/*
+Theme Name: MPE2025
+Theme URI: https://moroccoprivateexcursions.com
+Author: Morocco Private Excursions
+Description: Custom lightweight theme for Morocco Private Excursions.
+Version: 1.1.0
+Text Domain: mpe2025
+*/
+
+// Base - Fonts (must be first for proper loading)
+@import 'base/fonts';
+
+// Abstracts 
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Base
+@import 'base/reset';
+@import 'base/base';
+@import 'base/typography';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/hero';
+@import 'components/search';
+// @import 'components/icons';
+@import 'components/reservation-form';
+@import 'components/tripadvisor-reviews';
+@import 'components/custom-gallery';
+
+// Layout
+@import 'layout/container';
+@import 'layout/grid';
+@import 'layout/sections';
+
+// Utilities
+@import 'utilities/utilities';
+
+// Plugin Overrides for Accessibility
+.wprev_preview_tcolor1_T1 {
+    color: var(--text-light) !important;
+    /* Improve contrast */
+}
+
+.wprs_rd_more {
+    color: var(--primary) !important;
+    font-weight: bold;
+    text-decoration: underline;
+
+    &:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+}
+
+.wprs_unslider-arrow {
+    cursor: pointer;
+}

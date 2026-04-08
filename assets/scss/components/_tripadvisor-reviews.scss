@@ -1,0 +1,176 @@
+/**
+ * TripAdvisor Reviews Styles
+ */
+
+.ta-reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.ta-review-card {
+    background: var(--color-white, #fff);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+    position: relative;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        border-color: var(--primary, #bb9a56);
+    }
+}
+
+.ta-review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ta-review-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary, #bb9a56);
+    flex-shrink: 0;
+}
+
+.ta-review-avatar-placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary, #bb9a56), var(--color-accent, #d4b87a));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white, #fff);
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.ta-review-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.ta-reviewer-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text, #1a1a1a);
+}
+
+.ta-reviewer-location {
+    font-size: 0.875rem;
+    color: var(--color-text-light, #666);
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.ta-review-rating {
+    margin: 0.75rem 0;
+}
+
+.ta-stars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.ta-star {
+    color: var(--primary, #bb9a56);
+    width: 20px;
+    height: 20px;
+
+    &.ta-star-empty {
+        color: var(--color-border, #ddd);
+    }
+}
+
+.ta-review-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text, #1a1a1a);
+    margin: 1rem 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    &:hover {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+    }
+}
+
+.ta-review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+}
+
+.ta-review-date {
+    font-size: 0.875rem;
+    color: var(--color-text-light, #666);
+}
+
+.ta-tripadvisor-link {
+    display: inline-flex;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.8;
+
+    &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.ta-tripadvisor-logo {
+    width: 28px;
+    height: auto;
+}
+
+// Single column layout variant
+.ta-reviews-container.ta-reviews-list {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Compact variant
+.ta-reviews-container.ta-reviews-compact {
+    .ta-review-card {
+        padding: 1rem;
+    }
+
+    .ta-review-avatar,
+    .ta-review-avatar-placeholder {
+        width: 44px;
+        height: 44px;
+    }
+
+    .ta-reviewer-name {
+        font-size: 1rem;
+    }
+
+    .ta-tripadvisor-logo {
+        width: 24px;
+    }
+}

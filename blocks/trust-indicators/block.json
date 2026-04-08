@@ -1,0 +1,29 @@
+{
+    "apiVersion": 3,
+    "name": "mpe2025/trust-indicators",
+    "version": "1.0.0",
+    "title": "Trust Indicators",
+    "category": "widgets",
+    "icon": "awards",
+    "description": "Display trust indicators: Experience, License, and Reviews.",
+    "supports": {
+        "html": false
+    },
+    "attributes": {
+        "experienceText": {
+            "type": "string",
+            "default": "20 years of experience"
+        },
+        "licenseText": {
+            "type": "string",
+            "default": "Officially licensed by the Moroccan Ministry of Tourism"
+        },
+        "reviewsText": {
+            "type": "string",
+            "default": "Over 400 five-star reviews on Tripadvisor in 2025"
+        }
+    },
+    "textdomain": "mpe2025",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php"
+}
