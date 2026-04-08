@@ -35,7 +35,7 @@ jobs:
       - name: Build Unsigned iOS App (Xcode)
         working-directory: ./home-massage-app/ios/App
         run: |
-          xcodebuild -workspace App.xcworkspace \
+          xcodebuild -project App.xcodeproj \
                      -scheme App \
                      -configuration Debug \
                      -sdk iphoneos \
